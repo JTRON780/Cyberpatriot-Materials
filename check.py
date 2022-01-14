@@ -1,6 +1,5 @@
 from types import ModuleType
 
-
 class ImportedCheck:
     def __init__(self, name, code):
         self.name = name
@@ -10,7 +9,6 @@ class ImportedCheck:
 
     def check(self, args):
         return self.module.check(args)
-
 
 class ExtendedCheck:
     def __init__(self, name, params, importedCheck, importedArgs):
@@ -26,7 +24,6 @@ class ExtendedCheck:
                 val = args[param]
                 newArgs[k] = newArgs[k].replace("$" + param, val)
         return self.importedCheck.check(newArgs)
-
 
 class StatefulPackedCheck:
     def __init__(self, checks, checksArgs, pointValue: int, text: str, conditionString: str):
